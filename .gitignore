@@ -1,3 +1,37 @@
-build/
+# Build directories
+build*/
+out*/
+install/
+_CPack_Packages/
+
+# CMake files
+CMakeCache.txt
+CMakeFiles/
+*.cmake
+*.ctest
+
+# Compiled object files
 *.o
+*.obj
+
+# Executables and libraries
 *.exe
+*.dll
+*.so
+*.dylib
+*.tar.gz
+*.zip
+
+# IDE-specific files
+.vscode/
+.idea/
+*.suo
+*.user
+
+# Temporary files and logs
+*.log
+*.bak
+*.tmp
+
+# Dependency directories (optional)
+vcpkg/
