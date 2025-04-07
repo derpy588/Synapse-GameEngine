@@ -16,6 +16,10 @@ jobs:
       if: matrix.os == 'ubuntu-latest'
       run: sudo apt-get update && sudo apt-get install -y libsdl2-dev
 
+    - name: Install SDL2 on macOS
+      if: matrix.os == 'macos-latest'
+      run: brew install sdl2
+
     - name: Configure CMake
       run: cmake -B build -S . -DCMAKE_BUILD_TYPE=Release
 
