@@ -47,7 +47,7 @@ Follow these steps to set up Synapse Engine:
    ```
 3. **Build the engine:**
    ```bash
-   scripts/manage.sh build
+   scripts/managev2.sh build
    ```
 
 You could also download official packages that are compiled and prebuilt alread. The packages include the essential libraries and examples with the docs included.
