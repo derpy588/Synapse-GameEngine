@@ -38,7 +38,7 @@ jobs:
               path: |
                 desktop_version/build
                 desktop_version/CMakeLists.txt
-                key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('desktop_version/CMakeLists.txt') }}-SDL${{ env.SDL_VERSION }}
+              key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('desktop_version/CMakeLists.txt') }}-SDL${{ env.SDL_VERSION }}
 
         - if: ${{ steps.cache-windows-build-folder.outputs.cache-hit != 'true' }}
           name: CMake initial configure/generate
