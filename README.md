@@ -52,9 +52,7 @@ Follow these steps to set up Synapse Engine:
    scripts/managev2.sh release
    ```
 
-You could also download official packages that are compiled and prebuilt already. The packages include the essential libraries and examples with the docs included.
-
-**PACKAGED RELEASES COMING SOON**
+I may release the package for each platform in the future, but I am not sure because doing cross compiling is difficult and tedius and rather spend time making and improving the engine so for the time being you should compile the library from your computer.
 
 Once built, you can explore the engine by running a sample project. Check the `examples` directory for specific instructions.
 **Note** that there currently are no examples but plan to implement them later.
