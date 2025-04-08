@@ -3,45 +3,78 @@ name: CI
 on: [push, pull_request]
 
 jobs:
-  build:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
-
+  # Job for Ubuntu
+  build-ubuntu:
+    runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+      - name: Checkout Code
+        uses: actions/checkout@v2
 
-    - name: Install Dependencies (Ubuntu)
-      if: matrix.os == 'ubuntu-latest'
-      run: sudo apt-get update && sudo apt-get install -y libsdl2-dev
+      - name: Install Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libsdl2-dev libgl1-mesa-dev
 
-    - name: Install SDL2 on macOS
-      if: matrix.os == 'macos-latest'
-      run: brew install sdl2
+      - name: Configure CMake
+        run: cmake -B build -S . -DCMAKE_BUILD_TYPE=Release
 
-    - name: Install vcpkg and SDL2 on Windows
-      if: matrix.os == 'windows-latest'
-      shell: cmd
-      run: |
-        git clone https://github.com/microsoft/vcpkg.git
-        cd vcpkg
-        call bootstrap-vcpkg.bat
-        vcpkg.exe integrate install
-        vcpkg.exe install sdl2:x64-windows
-        vcpkg.exe install gtest:x64-windows
+      - name: Build
+        run: cmake --build build --config Release
 
-    - name: Configure CMake (Ubuntu/macOS)
-      if: matrix.os != 'windows-latest'
-      run: cmake -B build -S . -DCMAKE_BUILD_TYPE=Release
+      - name: Run Tests
+        run: ctest --test-dir build
 
-    - name: Configure CMake (Windows)
-      if: matrix.os == 'windows-latest'
-      shell: cmd
-      run: cmake -S . -B build -DCMAKE_TOOLCHAIN_FILE=%CD%\vcpkg\scripts\buildsystems\vcpkg.cmake -DCMAKE_BUILD_TYPE=Release
+  # Job for macOS
+  build-macos:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
 
-    - name: Build
-      run: cmake --build build
+      - name: Install Dependencies
+        run: brew install sdl2
 
-    - name: Run Tests
-      run: ctest --test-dir build
+      - name: Configure CMake
+        run: cmake -B build -S . -DCMAKE_BUILD_TYPE=Release
+
+      - name: Build
+        run: cmake --build build --config Release
+
+      - name: Run Tests
+        run: ctest --test-dir build
+  
+  # Job for Windows
+  build-windows:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Cache vcpkg
+        id: cache-vcpkg
+        uses: actions/cache@v3
+        with:
+          path: vcpkg
+          key: vcpkg-cache-sdl2-${{ runner.os }}
+
+      - name: Install vcpkg and SDL2
+        shell: cmd
+        run: |
+          if not exist vcpkg (
+            git clone https://github.com/microsoft/vcpkg.git
+            cd vcpkg
+            call bootstrap-vcpkg.bat
+          ) else (
+            cd vcpkg
+          )
+          vcpkg.exe install sdl2:x64-windows glew:x64-windows
+
+      - name: Configure CMake
+        shell: cmd
+        run: cmake -S . -B build -DCMAKE_TOOLCHAIN_FILE=vcpkg/scripts/buildsystems/vcpkg.cmake -DCMAKE_BUILD_TYPE=Release
+
+      - name: Build
+        run: cmake --build build --config Release
+
+      - name: Run Tests
+        run: ctest --test-dir build --rerun-failed --output-on-failure
