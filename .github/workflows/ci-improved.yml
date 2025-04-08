@@ -67,7 +67,7 @@ jobs:
           ) else (
             cd vcpkg
           )
-          vcpkg.exe install sdl2:x64-windows
+          vcpkg.exe install sdl2:x64-windows glew:x64-windows
 
       - name: Configure CMake
         shell: cmd
