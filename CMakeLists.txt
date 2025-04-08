@@ -17,7 +17,7 @@ add_library(SynapseEngine STATIC
 target_include_directories(SynapseEngine PUBLIC include)
 
 # Link dependencies (e.g., SDL2, OpenGL)
-find_package(SDL2 REQUIRED)
+find_package(SDL2 CONFIG REQUIRED)
 target_link_libraries(SynapseEngine PUBLIC SDL2::SDL2)
 
 find_package(OpenGL REQUIRED)
