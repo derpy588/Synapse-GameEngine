@@ -6,6 +6,8 @@ project(SynapseEngine)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+set(CPACK_PACKAGE_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/../Packaging")
+
 if (MSVC)
     add_compile_options(
         $<$<CONFIG:Debug>:/MDd>  # Use dynamic debug runtime in Debug mode
@@ -66,6 +68,9 @@ install(DIRECTORY include/SynapseEngine DESTINATION include)
 
 # Install examples (optional)
 install(DIRECTORY examples/ DESTINATION examples)
+
+# Install docs
+install(DIRECTORY docs/ DESTINATION docs)
 
 # Set package metadata
 set(CPACK_PACKAGE_NAME "SynapseEngine")
