@@ -29,12 +29,7 @@ jobs:
         call bootstrap-vcpkg.bat
         vcpkg.exe integrate install
         vcpkg.exe install sdl2:x64-windows
-        vcpkg.exe list
-
-    - name: Check sdl2 (windows)
-      if: matrix.os == 'windows-latest'
-      shell: cmd
-      run: vcpkg.exe list
+        vcpkg.exe install gtest:x64-windows
 
     - name: Configure CMake (Ubuntu/macOS)
       if: matrix.os != 'windows-latest'
