@@ -26,7 +26,7 @@ jobs:
       run: |
         git clone https://github.com/microsoft/vcpkg.git
         cd vcpkg
-        bootstrap-vcpkg.bat
+        call bootstrap-vcpkg.bat
         vcpkg.exe integrate install
         vcpkg.exe install sdl2:x64-windows
 
