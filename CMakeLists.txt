@@ -6,6 +6,13 @@ project(SynapseEngine)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+if (MSVC)
+    add_compile_options(
+        $<$<CONFIG:Debug>:/MDd>  # Use dynamic debug runtime in Debug mode
+        $<$<CONFIG:Release>:/MD> # Use dynamic release runtime in Release mode
+    )
+endif()
+
 # Build SynapseEngine as a static library
 add_library(SynapseEngine STATIC
     src/engine.cpp
@@ -24,6 +31,9 @@ find_package(OpenGL REQUIRED)
 target_link_libraries(SynapseEngine PUBLIC OpenGL::GL)
 
 # ======== BUILDING TESTS ========
+if (MSVC)
+    set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+endif()
 
 # Set up Google Test for testing
 include(FetchContent)
