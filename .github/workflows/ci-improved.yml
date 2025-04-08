@@ -15,34 +15,34 @@ jobs:
         - uses: actions/checkout@v2
 
         - name: Cache SDL
-            id: cache-windows-sdl
-            uses: actions/cache@v3
-            env:
-                cache-name: cache-sdl
-            with:
-                path: C:\SDL2-*
-                key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ env.SDL_VERSION }}
+          id: cache-windows-sdl
+          uses: actions/cache@v3
+          env:
+              cache-name: cache-sdl
+          with:
+              path: C:\SDL2-*
+              key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ env.SDL_VERSION }}
 
         - if: ${{ steps.cache-windows-sdl.outputs.cache-hit != 'true' }}
-            name: Download SDL if not cached
-            run: |
-                Invoke-WebRequest "https://github.com/libsdl-org/SDL/releases/download/release-$env:SDL_VERSION/SDL2-devel-$env:SDL_VERSION-VC.zip" -OutFile C:\SDL.zip
-                Expand-Archive C:\SDL.zip -DestinationPath C:\
+          name: Download SDL if not cached
+          run: |
+              Invoke-WebRequest "https://github.com/libsdl-org/SDL/releases/download/release-$env:SDL_VERSION/SDL2-devel-$env:SDL_VERSION-VC.zip" -OutFile C:\SDL.zip
+              Expand-Archive C:\SDL.zip -DestinationPath C:\
 
         - name: Cache build folder for this CMakeLists.txt
-            id: cache-windows-build-folder
-            uses: actions/cache@v3
-            env:
-                cache-name: cache-windows-build-folder-VS2022
-            with:
-                path: |
+          id: cache-windows-build-folder
+          uses: actions/cache@v3
+          env:
+              cache-name: cache-windows-build-folder-VS2022
+          with:
+              path: |
                 desktop_version/build
                 desktop_version/CMakeLists.txt
                 key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('desktop_version/CMakeLists.txt') }}-SDL${{ env.SDL_VERSION }}
 
         - if: ${{ steps.cache-windows-build-folder.outputs.cache-hit != 'true' }}
-            name: CMake initial configure/generate
-            run: |
+          name: CMake initial configure/generate
+          run: |
                 mkdir $env:SRC_DIR_PATH/build
                 cd $env:SRC_DIR_PATH/build
                 $env:LDFLAGS =  "/LIBPATH:C:\SDL2-$env:SDL_VERSION\lib\x86 "
@@ -51,12 +51,12 @@ jobs:
                     -DSDL2_LIBRARIES="SDL2;SDL2main" ..
 
         - name: Configure CMake (Windows)
-            run: |
+          run: |
                 cd $env:SRC_DIR_PATH/build
                 cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
 
         - name: Build
-            run: cmake --build build
+          run: cmake --build build
 
         - name: Run Tests
-            run: ctest --test-dir build
+          run: ctest --test-dir build
