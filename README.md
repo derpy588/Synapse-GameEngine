@@ -29,6 +29,8 @@
 - Standalone editor (SynapaseEditor)
 - And more!
 
+If you would like to see my progress and roadmap check it out **[HERE](ROADMAP.md)**.
+
 ---
 
 ## Getting Started
