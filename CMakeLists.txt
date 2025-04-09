@@ -1,6 +1,6 @@
 # ======== BUILDING MAIN LIBRARY ========
 cmake_minimum_required(VERSION 3.10)
-project(SynapseEngine)
+project(SynapseEngine VERSION 1.0.0)
 
 # Set C++ standard
 set(CMAKE_CXX_STANDARD 17)
@@ -74,7 +74,7 @@ install(DIRECTORY docs/ DESTINATION docs)
 
 # Set package metadata
 set(CPACK_PACKAGE_NAME "SynapseEngine")
-set(CPACK_PACKAGE_VERSION "1.0.0")
+set(CPACK_PACKAGE_VERSION ${PROJECT_VERSION})
 set(CPACK_PACKAGE_DESCRIPTION "A game engine library")
 set(CPACK_GENERATOR "ZIP;TGZ")  # Creates .zip and .tar.gz files
 
