@@ -18,10 +18,15 @@
 
 **Key Features:**
 - Cross-platform support (Windows, macOS, Linux)
+- Lightweight
 - High-performance rendering with OpenGL
 - Integrated physics engine with bullet physics engine
-- Asset management systeming
-- Custimizability of all underly platforms
+- Support for implementing custom physics engine or proprietary physics engine (Ex. Havok, PhysX)
+- Asset management system
+- Implement your own rendering backends (Ex. Vulkan, DirectX, etc.)
+- Multithreading support
+- Pure ECS (Entity Control System) Approach & Scene Management System
+- Standalone editor (SynapaseEditor)
 - And more!
 
 ---
