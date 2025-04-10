@@ -17,7 +17,8 @@ endif()
 
 # Build SynapseEngine as a static library
 add_library(SynapseEngine STATIC
-    src/engine.cpp
+    src/Synapse.cpp
+    src/Core/Application.cpp
     
     # Add other source files here
 )
