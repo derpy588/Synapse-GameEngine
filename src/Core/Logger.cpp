@@ -41,14 +41,14 @@ namespace Synapse {
         if (!shouldLog(level, category)) return;
 
         LogMessage logMessage {
-            .level = level,
-            .message = message,
-            .category = category,
-            .file = file,
-            .line = line,
-            .function = function,
-            .threadId = std::this_thread::get_id(),
-            .timestamp = std::chrono::system_clock::now()
+            level,
+            message,
+            category,
+            file,
+            line,
+            function,
+            std::this_thread::get_id(),
+            std::chrono::system_clock::now()
         };
 
         std::lock_guard<std::mutex> lock(logMutex);
