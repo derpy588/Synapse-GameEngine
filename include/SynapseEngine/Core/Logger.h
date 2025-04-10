@@ -7,6 +7,8 @@
 #include <mutex>
 #include <unordered_map>
 #include <fstream>
+#include <memory>
+#include <iomanip>
 
 #define ENGINE_LOG_TRACE(message, category) \
     Synapse::Logger::trace(message, category, __FILE__, __LINE__, __FUNCTION__)
