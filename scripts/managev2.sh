@@ -70,8 +70,13 @@ case "$1" in
         ;;
     test)
         build
-        cd build-$CURRENT_PLATFORM
+        #cd build-$CURRENT_PLATFORM
         ctest --test-dir build-$CURRENT_PLATFORM
+        ;;
+    test_verbose)
+        build
+        #cd build-$CURRENT_PLATFORM
+        ctest --test-dir build-$CURRENT_PLATFORM -V
         ;;
     gen_docs)
         doxygen $script_dir/../Doxyfile
@@ -80,7 +85,7 @@ case "$1" in
         open $script_dir/../docs/html/index.html
         ;;
     *)
-        echo "Usage: $0 {build|package|release|clean|test|gen_docs|open_docs}"
+        echo "Usage: $0 {build|package|release|clean|test|test_verbose|gen_docs|open_docs}"
         exit 1
         ;;
 esac
