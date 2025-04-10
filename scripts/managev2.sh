@@ -80,7 +80,7 @@ case "$1" in
         open $script_dir/../docs/html/index.html
         ;;
     *)
-        echo "Usage: $0 {build|package|release}"
+        echo "Usage: $0 {build|package|release|clean|test|gen_docs|open_docs}"
         exit 1
         ;;
 esac
