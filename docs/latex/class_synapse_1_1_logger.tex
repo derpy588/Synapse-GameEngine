@@ -1,0 +1,120 @@
+\doxysection{Synapse\+::Logger Class Reference}
+\hypertarget{class_synapse_1_1_logger}{}\label{class_synapse_1_1_logger}\index{Synapse::Logger@{Synapse::Logger}}
+
+
+{\ttfamily \#include $<$Logger.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_synapse_1_1_logger_a2c74c1bc8cd3a45c3f88e427e8f55377}{add\+Sink}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_synapse_1_1_i_log_sink}{ILog\+Sink}} $>$ sink)
+\item 
+void \mbox{\hyperlink{class_synapse_1_1_logger_aa9571f14b7ec5ecb8aec0edacb1df94b}{set\+Global\+Level}} (\mbox{\hyperlink{namespace_synapse_ab9c8d27c1b5de8fd3f0fa86c4a75963b}{Log\+Level}} level)
+\item 
+void \mbox{\hyperlink{class_synapse_1_1_logger_a2566f2abdb36f3cb78fe40b8b5b52d56}{set\+Category\+Level}} (const std\+::string \&category, \mbox{\hyperlink{namespace_synapse_ab9c8d27c1b5de8fd3f0fa86c4a75963b}{Log\+Level}} level)
+\item 
+bool \mbox{\hyperlink{class_synapse_1_1_logger_a6e11258c94fa1370676656047551dea8}{should\+Log}} (\mbox{\hyperlink{namespace_synapse_ab9c8d27c1b5de8fd3f0fa86c4a75963b}{Log\+Level}} level, const std\+::string \&category)
+\item 
+void \mbox{\hyperlink{class_synapse_1_1_logger_a456816cc4393bd2561c2b1596ad58593}{log}} (\mbox{\hyperlink{namespace_synapse_ab9c8d27c1b5de8fd3f0fa86c4a75963b}{Log\+Level}} level, const std\+::string \&message, const std\+::string \&category, const std\+::string \&file, int line, const std\+::string \&function)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_synapse_1_1_logger}{Logger}} \& \mbox{\hyperlink{class_synapse_1_1_logger_acba154144eae824a95af3a94efca4424}{get\+Instance}} ()
+\item 
+static void \mbox{\hyperlink{class_synapse_1_1_logger_a8894563638daddecbb92b9956ceba58f}{trace}} (const std\+::string \&message, const std\+::string \&category, const std\+::string \&file, int line, const std\+::string \&function)
+\item 
+static void \mbox{\hyperlink{class_synapse_1_1_logger_a923d511dcc937a741e225bfe013ef540}{debug}} (const std\+::string \&message, const std\+::string \&category, const std\+::string \&file, int line, const std\+::string \&function)
+\item 
+static void \mbox{\hyperlink{class_synapse_1_1_logger_a98f642711c7553aa7b702c51c83dab6e}{info}} (const std\+::string \&message, const std\+::string \&category, const std\+::string \&file, int line, const std\+::string \&function)
+\item 
+static void \mbox{\hyperlink{class_synapse_1_1_logger_a96bb76bb671ea31920ccf96e5e5d3832}{warning}} (const std\+::string \&message, const std\+::string \&category, const std\+::string \&file, int line, const std\+::string \&function)
+\item 
+static void \mbox{\hyperlink{class_synapse_1_1_logger_a9a41472777b1421afb75a1e94963594a}{error}} (const std\+::string \&message, const std\+::string \&category, const std\+::string \&file, int line, const std\+::string \&function)
+\item 
+static void \mbox{\hyperlink{class_synapse_1_1_logger_a9402904f144c7e90ad92912c68ba8226}{critical}} (const std\+::string \&message, const std\+::string \&category, const std\+::string \&file, int line, const std\+::string \&function)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The main \doxylink{class_synapse_1_1_logger}{Logger} class Highly suggest you use the macros provided for logging 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_synapse_1_1_logger_a2c74c1bc8cd3a45c3f88e427e8f55377}\index{Synapse::Logger@{Synapse::Logger}!addSink@{addSink}}
+\index{addSink@{addSink}!Synapse::Logger@{Synapse::Logger}}
+\doxysubsubsection{\texorpdfstring{addSink()}{addSink()}}
+{\footnotesize\ttfamily \label{class_synapse_1_1_logger_a2c74c1bc8cd3a45c3f88e427e8f55377} 
+void Synapse\+::\+Logger\+::add\+Sink (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_synapse_1_1_i_log_sink}{ILog\+Sink}} $>$}]{sink}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_synapse_1_1_logger_a9402904f144c7e90ad92912c68ba8226}\index{Synapse::Logger@{Synapse::Logger}!critical@{critical}}
+\index{critical@{critical}!Synapse::Logger@{Synapse::Logger}}
+\doxysubsubsection{\texorpdfstring{critical()}{critical()}}
+{\footnotesize\ttfamily \label{class_synapse_1_1_logger_a9402904f144c7e90ad92912c68ba8226} 
+static void Synapse\+::\+Logger\+::critical (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{message}{, }\item[{const std\+::string \&}]{category}{, }\item[{const std\+::string \&}]{file}{, }\item[{int}]{line}{, }\item[{const std\+::string \&}]{function}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\Hypertarget{class_synapse_1_1_logger_a923d511dcc937a741e225bfe013ef540}\index{Synapse::Logger@{Synapse::Logger}!debug@{debug}}
+\index{debug@{debug}!Synapse::Logger@{Synapse::Logger}}
+\doxysubsubsection{\texorpdfstring{debug()}{debug()}}
+{\footnotesize\ttfamily \label{class_synapse_1_1_logger_a923d511dcc937a741e225bfe013ef540} 
+static void Synapse\+::\+Logger\+::debug (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{message}{, }\item[{const std\+::string \&}]{category}{, }\item[{const std\+::string \&}]{file}{, }\item[{int}]{line}{, }\item[{const std\+::string \&}]{function}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\Hypertarget{class_synapse_1_1_logger_a9a41472777b1421afb75a1e94963594a}\index{Synapse::Logger@{Synapse::Logger}!error@{error}}
+\index{error@{error}!Synapse::Logger@{Synapse::Logger}}
+\doxysubsubsection{\texorpdfstring{error()}{error()}}
+{\footnotesize\ttfamily \label{class_synapse_1_1_logger_a9a41472777b1421afb75a1e94963594a} 
+static void Synapse\+::\+Logger\+::error (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{message}{, }\item[{const std\+::string \&}]{category}{, }\item[{const std\+::string \&}]{file}{, }\item[{int}]{line}{, }\item[{const std\+::string \&}]{function}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\Hypertarget{class_synapse_1_1_logger_acba154144eae824a95af3a94efca4424}\index{Synapse::Logger@{Synapse::Logger}!getInstance@{getInstance}}
+\index{getInstance@{getInstance}!Synapse::Logger@{Synapse::Logger}}
+\doxysubsubsection{\texorpdfstring{getInstance()}{getInstance()}}
+{\footnotesize\ttfamily \label{class_synapse_1_1_logger_acba154144eae824a95af3a94efca4424} 
+static \mbox{\hyperlink{class_synapse_1_1_logger}{Logger}} \& Synapse\+::\+Logger\+::get\+Instance (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\Hypertarget{class_synapse_1_1_logger_a98f642711c7553aa7b702c51c83dab6e}\index{Synapse::Logger@{Synapse::Logger}!info@{info}}
+\index{info@{info}!Synapse::Logger@{Synapse::Logger}}
+\doxysubsubsection{\texorpdfstring{info()}{info()}}
+{\footnotesize\ttfamily \label{class_synapse_1_1_logger_a98f642711c7553aa7b702c51c83dab6e} 
+static void Synapse\+::\+Logger\+::info (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{message}{, }\item[{const std\+::string \&}]{category}{, }\item[{const std\+::string \&}]{file}{, }\item[{int}]{line}{, }\item[{const std\+::string \&}]{function}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\Hypertarget{class_synapse_1_1_logger_a456816cc4393bd2561c2b1596ad58593}\index{Synapse::Logger@{Synapse::Logger}!log@{log}}
+\index{log@{log}!Synapse::Logger@{Synapse::Logger}}
+\doxysubsubsection{\texorpdfstring{log()}{log()}}
+{\footnotesize\ttfamily \label{class_synapse_1_1_logger_a456816cc4393bd2561c2b1596ad58593} 
+void Synapse\+::\+Logger\+::log (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_synapse_ab9c8d27c1b5de8fd3f0fa86c4a75963b}{Log\+Level}}}]{level}{, }\item[{const std\+::string \&}]{message}{, }\item[{const std\+::string \&}]{category}{, }\item[{const std\+::string \&}]{file}{, }\item[{int}]{line}{, }\item[{const std\+::string \&}]{function}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_synapse_1_1_logger_a2566f2abdb36f3cb78fe40b8b5b52d56}\index{Synapse::Logger@{Synapse::Logger}!setCategoryLevel@{setCategoryLevel}}
+\index{setCategoryLevel@{setCategoryLevel}!Synapse::Logger@{Synapse::Logger}}
+\doxysubsubsection{\texorpdfstring{setCategoryLevel()}{setCategoryLevel()}}
+{\footnotesize\ttfamily \label{class_synapse_1_1_logger_a2566f2abdb36f3cb78fe40b8b5b52d56} 
+void Synapse\+::\+Logger\+::set\+Category\+Level (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{category}{, }\item[{\mbox{\hyperlink{namespace_synapse_ab9c8d27c1b5de8fd3f0fa86c4a75963b}{Log\+Level}}}]{level}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_synapse_1_1_logger_aa9571f14b7ec5ecb8aec0edacb1df94b}\index{Synapse::Logger@{Synapse::Logger}!setGlobalLevel@{setGlobalLevel}}
+\index{setGlobalLevel@{setGlobalLevel}!Synapse::Logger@{Synapse::Logger}}
+\doxysubsubsection{\texorpdfstring{setGlobalLevel()}{setGlobalLevel()}}
+{\footnotesize\ttfamily \label{class_synapse_1_1_logger_aa9571f14b7ec5ecb8aec0edacb1df94b} 
+void Synapse\+::\+Logger\+::set\+Global\+Level (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_synapse_ab9c8d27c1b5de8fd3f0fa86c4a75963b}{Log\+Level}}}]{level}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_synapse_1_1_logger_a6e11258c94fa1370676656047551dea8}\index{Synapse::Logger@{Synapse::Logger}!shouldLog@{shouldLog}}
+\index{shouldLog@{shouldLog}!Synapse::Logger@{Synapse::Logger}}
+\doxysubsubsection{\texorpdfstring{shouldLog()}{shouldLog()}}
+{\footnotesize\ttfamily \label{class_synapse_1_1_logger_a6e11258c94fa1370676656047551dea8} 
+bool Synapse\+::\+Logger\+::should\+Log (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_synapse_ab9c8d27c1b5de8fd3f0fa86c4a75963b}{Log\+Level}}}]{level}{, }\item[{const std\+::string \&}]{category}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_synapse_1_1_logger_a8894563638daddecbb92b9956ceba58f}\index{Synapse::Logger@{Synapse::Logger}!trace@{trace}}
+\index{trace@{trace}!Synapse::Logger@{Synapse::Logger}}
+\doxysubsubsection{\texorpdfstring{trace()}{trace()}}
+{\footnotesize\ttfamily \label{class_synapse_1_1_logger_a8894563638daddecbb92b9956ceba58f} 
+static void Synapse\+::\+Logger\+::trace (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{message}{, }\item[{const std\+::string \&}]{category}{, }\item[{const std\+::string \&}]{file}{, }\item[{int}]{line}{, }\item[{const std\+::string \&}]{function}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\Hypertarget{class_synapse_1_1_logger_a96bb76bb671ea31920ccf96e5e5d3832}\index{Synapse::Logger@{Synapse::Logger}!warning@{warning}}
+\index{warning@{warning}!Synapse::Logger@{Synapse::Logger}}
+\doxysubsubsection{\texorpdfstring{warning()}{warning()}}
+{\footnotesize\ttfamily \label{class_synapse_1_1_logger_a96bb76bb671ea31920ccf96e5e5d3832} 
+static void Synapse\+::\+Logger\+::warning (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{message}{, }\item[{const std\+::string \&}]{category}{, }\item[{const std\+::string \&}]{file}{, }\item[{int}]{line}{, }\item[{const std\+::string \&}]{function}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\+Synapse\+Engine/\+Core/\mbox{\hyperlink{_logger_8h}{Logger.\+h}}\item 
+src/\+Core/\mbox{\hyperlink{_logger_8cpp}{Logger.\+cpp}}\end{DoxyCompactItemize}

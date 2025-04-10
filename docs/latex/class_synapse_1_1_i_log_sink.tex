@@ -1,0 +1,66 @@
+\doxysection{Synapse\+::ILog\+Sink Class Reference}
+\hypertarget{class_synapse_1_1_i_log_sink}{}\label{class_synapse_1_1_i_log_sink}\index{Synapse::ILogSink@{Synapse::ILogSink}}
+
+
+{\ttfamily \#include $<$Logger.\+h$>$}
+
+
+
+Inheritance diagram for Synapse\+::ILog\+Sink\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=310pt]{class_synapse_1_1_i_log_sink__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_synapse_1_1_i_log_sink_a635116c1748d1c859eb9d6b9e0c43a61}{\texorpdfstring{$\sim$}{\string~}\+ILog\+Sink}} ()=default
+\item 
+virtual void \mbox{\hyperlink{class_synapse_1_1_i_log_sink_a93efba7a7a7d4910051b0964d7b7bad8}{write}} (const \mbox{\hyperlink{struct_synapse_1_1_log_message}{Log\+Message}} \&message)=0
+\item 
+virtual void \mbox{\hyperlink{class_synapse_1_1_i_log_sink_aa80a929e18a6ab28b431277d46b3617b}{flush}} ()=0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Sink interface for logging
+
+This interface is used to create different logging sinks like console, file, network, etc. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_synapse_1_1_i_log_sink_a635116c1748d1c859eb9d6b9e0c43a61}\index{Synapse::ILogSink@{Synapse::ILogSink}!````~ILogSink@{\texorpdfstring{$\sim$}{\string~}ILogSink}}
+\index{````~ILogSink@{\texorpdfstring{$\sim$}{\string~}ILogSink}!Synapse::ILogSink@{Synapse::ILogSink}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}ILogSink()}{\string~ILogSink()}}
+{\footnotesize\ttfamily \label{class_synapse_1_1_i_log_sink_a635116c1748d1c859eb9d6b9e0c43a61} 
+virtual Synapse\+::\+ILog\+Sink\+::\texorpdfstring{$\sim$}{\string~}\+ILog\+Sink (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_synapse_1_1_i_log_sink_aa80a929e18a6ab28b431277d46b3617b}\index{Synapse::ILogSink@{Synapse::ILogSink}!flush@{flush}}
+\index{flush@{flush}!Synapse::ILogSink@{Synapse::ILogSink}}
+\doxysubsubsection{\texorpdfstring{flush()}{flush()}}
+{\footnotesize\ttfamily \label{class_synapse_1_1_i_log_sink_aa80a929e18a6ab28b431277d46b3617b} 
+virtual void Synapse\+::\+ILog\+Sink\+::flush (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_synapse_1_1_console_sink_a20b86ae880b63b6e465afd021b3caf01}{Synapse\+::\+Console\+Sink}}, and \mbox{\hyperlink{class_synapse_1_1_file_sink_a7450d289bc2a0520b3f07ad045606574}{Synapse\+::\+File\+Sink}}.
+
+\Hypertarget{class_synapse_1_1_i_log_sink_a93efba7a7a7d4910051b0964d7b7bad8}\index{Synapse::ILogSink@{Synapse::ILogSink}!write@{write}}
+\index{write@{write}!Synapse::ILogSink@{Synapse::ILogSink}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}}
+{\footnotesize\ttfamily \label{class_synapse_1_1_i_log_sink_a93efba7a7a7d4910051b0964d7b7bad8} 
+virtual void Synapse\+::\+ILog\+Sink\+::write (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_synapse_1_1_log_message}{Log\+Message}} \&}]{message}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_synapse_1_1_console_sink_a6729d4521d924b45a8d537ca913c152c}{Synapse\+::\+Console\+Sink}}, and \mbox{\hyperlink{class_synapse_1_1_file_sink_a336e99ec52e9e59839cfe4bf6ff9d672}{Synapse\+::\+File\+Sink}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\+Synapse\+Engine/\+Core/\mbox{\hyperlink{_logger_8h}{Logger.\+h}}\end{DoxyCompactItemize}

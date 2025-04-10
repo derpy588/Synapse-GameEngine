@@ -1,0 +1,49 @@
+\doxysection{ILog\+Sink Class Reference}
+\hypertarget{class_i_log_sink}{}\label{class_i_log_sink}\index{ILogSink@{ILogSink}}
+
+
+{\ttfamily \#include $<$Logger.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_i_log_sink_a12c40041639a7eaacca99c124d53d3d4}{\texorpdfstring{$\sim$}{\string~}\+ILog\+Sink}} ()=default
+\item 
+virtual void \mbox{\hyperlink{class_i_log_sink_aa8dcacdd437f9fca243e7d473a3cde1d}{write}} (const \mbox{\hyperlink{struct_log_message}{Log\+Message}} \&message)=0
+\item 
+virtual void \mbox{\hyperlink{class_i_log_sink_a726420c5711c8087a8e7da4e2bb4a071}{flush}} ()=0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Sink interface for logging
+
+This interface is used to create different logging sinks like console, file, network, etc. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_i_log_sink_a12c40041639a7eaacca99c124d53d3d4}\index{ILogSink@{ILogSink}!````~ILogSink@{\texorpdfstring{$\sim$}{\string~}ILogSink}}
+\index{````~ILogSink@{\texorpdfstring{$\sim$}{\string~}ILogSink}!ILogSink@{ILogSink}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}ILogSink()}{\string~ILogSink()}}
+{\footnotesize\ttfamily \label{class_i_log_sink_a12c40041639a7eaacca99c124d53d3d4} 
+virtual ILog\+Sink\+::\texorpdfstring{$\sim$}{\string~}\+ILog\+Sink (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_i_log_sink_a726420c5711c8087a8e7da4e2bb4a071}\index{ILogSink@{ILogSink}!flush@{flush}}
+\index{flush@{flush}!ILogSink@{ILogSink}}
+\doxysubsubsection{\texorpdfstring{flush()}{flush()}}
+{\footnotesize\ttfamily \label{class_i_log_sink_a726420c5711c8087a8e7da4e2bb4a071} 
+virtual void ILog\+Sink\+::flush (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\Hypertarget{class_i_log_sink_aa8dcacdd437f9fca243e7d473a3cde1d}\index{ILogSink@{ILogSink}!write@{write}}
+\index{write@{write}!ILogSink@{ILogSink}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}}
+{\footnotesize\ttfamily \label{class_i_log_sink_aa8dcacdd437f9fca243e7d473a3cde1d} 
+virtual void ILog\+Sink\+::write (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_log_message}{Log\+Message}} \&}]{message}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\+Synapse\+Engine/\+Core/\mbox{\hyperlink{_logger_8h}{Logger.\+h}}\end{DoxyCompactItemize}

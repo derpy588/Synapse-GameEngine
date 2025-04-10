@@ -1,0 +1,139 @@
+\doxysection{include/\+Synapse\+Engine/\+Core/\+Logger.h File Reference}
+\hypertarget{_logger_8h}{}\label{_logger_8h}\index{include/SynapseEngine/Core/Logger.h@{include/SynapseEngine/Core/Logger.h}}
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$thread$>$}\newline
+{\ttfamily \#include $<$chrono$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$mutex$>$}\newline
+{\ttfamily \#include $<$unordered\+\_\+map$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+Include dependency graph for Logger.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_logger_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=198pt]{_logger_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_synapse_1_1_log_message}{Synapse\+::\+Log\+Message}}
+\item 
+class \mbox{\hyperlink{class_synapse_1_1_i_log_sink}{Synapse\+::\+ILog\+Sink}}
+\item 
+class \mbox{\hyperlink{class_synapse_1_1_logger}{Synapse\+::\+Logger}}
+\item 
+class \mbox{\hyperlink{class_synapse_1_1_console_sink}{Synapse\+::\+Console\+Sink}}
+\item 
+class \mbox{\hyperlink{class_synapse_1_1_file_sink}{Synapse\+::\+File\+Sink}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespace_synapse}{Synapse}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_logger_8h_ae923a0bfe44ce34efeb35a30146260ab}{ENGINE\+\_\+\+LOG\+\_\+\+TRACE}}(message,  category)
+\item 
+\#define \mbox{\hyperlink{_logger_8h_a8bacf71b34740e5534eef28d6c643201}{ENGINE\+\_\+\+LOG\+\_\+\+DEBUG}}(message,  category)
+\item 
+\#define \mbox{\hyperlink{_logger_8h_a336b67145ed90b00e91f26b8e64cccbe}{ENGINE\+\_\+\+LOG\+\_\+\+INFO}}(message,  category)
+\item 
+\#define \mbox{\hyperlink{_logger_8h_a29bd837e5b1db1326e444bb02d4162f1}{ENGINE\+\_\+\+LOG\+\_\+\+WARNING}}(message,  category)
+\item 
+\#define \mbox{\hyperlink{_logger_8h_a9cc3d42555931217a2b6b79203f095d8}{ENGINE\+\_\+\+LOG\+\_\+\+ERROR}}(message,  category)
+\item 
+\#define \mbox{\hyperlink{_logger_8h_a951718386a148c238226790116ffb417}{ENGINE\+\_\+\+LOG\+\_\+\+CRITICAL}}(message,  category)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{namespace_synapse_ab9c8d27c1b5de8fd3f0fa86c4a75963b}{Synapse\+::\+Log\+Level}} \{ \newline
+\mbox{\hyperlink{namespace_synapse_ab9c8d27c1b5de8fd3f0fa86c4a75963badd4ec0ac4e58f7c32a01244ae91150b1}{Synapse\+::\+Trace}}
+, \mbox{\hyperlink{namespace_synapse_ab9c8d27c1b5de8fd3f0fa86c4a75963baa603905470e2a5b8c13e96b579ef0dba}{Synapse\+::\+Debug}}
+, \mbox{\hyperlink{namespace_synapse_ab9c8d27c1b5de8fd3f0fa86c4a75963ba4059b0251f66a18cb56f544728796875}{Synapse\+::\+Info}}
+, \mbox{\hyperlink{namespace_synapse_ab9c8d27c1b5de8fd3f0fa86c4a75963ba0eaadb4fcb48a0a0ed7bc9868be9fbaa}{Synapse\+::\+Warning}}
+, \newline
+\mbox{\hyperlink{namespace_synapse_ab9c8d27c1b5de8fd3f0fa86c4a75963ba902b0d55fddef6f8d651fe1035b7d4bd}{Synapse\+::\+Error}}
+, \mbox{\hyperlink{namespace_synapse_ab9c8d27c1b5de8fd3f0fa86c4a75963ba278d01e5af56273bae1bb99a98b370cd}{Synapse\+::\+Critical}}
+, \mbox{\hyperlink{namespace_synapse_ab9c8d27c1b5de8fd3f0fa86c4a75963bad15305d7a4e34e02489c74a5ef542f36}{Synapse\+::\+Off}}
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{_logger_8h_a951718386a148c238226790116ffb417}\index{Logger.h@{Logger.h}!ENGINE\_LOG\_CRITICAL@{ENGINE\_LOG\_CRITICAL}}
+\index{ENGINE\_LOG\_CRITICAL@{ENGINE\_LOG\_CRITICAL}!Logger.h@{Logger.h}}
+\doxysubsubsection{\texorpdfstring{ENGINE\_LOG\_CRITICAL}{ENGINE\_LOG\_CRITICAL}}
+{\footnotesize\ttfamily \label{_logger_8h_a951718386a148c238226790116ffb417} 
+\#define ENGINE\+\_\+\+LOG\+\_\+\+CRITICAL(\begin{DoxyParamCaption}\item[{}]{message}{, }\item[{}]{category}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{class_synapse_1_1_logger_a9402904f144c7e90ad92912c68ba8226}{Synapse::Logger::critical}}(message,\ category,\ \_\_FILE\_\_,\ \_\_LINE\_\_,\ \_\_FUNCTION\_\_)}
+
+\end{DoxyCode}
+\Hypertarget{_logger_8h_a8bacf71b34740e5534eef28d6c643201}\index{Logger.h@{Logger.h}!ENGINE\_LOG\_DEBUG@{ENGINE\_LOG\_DEBUG}}
+\index{ENGINE\_LOG\_DEBUG@{ENGINE\_LOG\_DEBUG}!Logger.h@{Logger.h}}
+\doxysubsubsection{\texorpdfstring{ENGINE\_LOG\_DEBUG}{ENGINE\_LOG\_DEBUG}}
+{\footnotesize\ttfamily \label{_logger_8h_a8bacf71b34740e5534eef28d6c643201} 
+\#define ENGINE\+\_\+\+LOG\+\_\+\+DEBUG(\begin{DoxyParamCaption}\item[{}]{message}{, }\item[{}]{category}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{class_synapse_1_1_logger_a923d511dcc937a741e225bfe013ef540}{Synapse::Logger::debug}}(message,\ category,\ \_\_FILE\_\_,\ \_\_LINE\_\_,\ \_\_FUNCTION\_\_)}
+
+\end{DoxyCode}
+\Hypertarget{_logger_8h_a9cc3d42555931217a2b6b79203f095d8}\index{Logger.h@{Logger.h}!ENGINE\_LOG\_ERROR@{ENGINE\_LOG\_ERROR}}
+\index{ENGINE\_LOG\_ERROR@{ENGINE\_LOG\_ERROR}!Logger.h@{Logger.h}}
+\doxysubsubsection{\texorpdfstring{ENGINE\_LOG\_ERROR}{ENGINE\_LOG\_ERROR}}
+{\footnotesize\ttfamily \label{_logger_8h_a9cc3d42555931217a2b6b79203f095d8} 
+\#define ENGINE\+\_\+\+LOG\+\_\+\+ERROR(\begin{DoxyParamCaption}\item[{}]{message}{, }\item[{}]{category}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{class_synapse_1_1_logger_a9a41472777b1421afb75a1e94963594a}{Synapse::Logger::error}}(message,\ category,\ \_\_FILE\_\_,\ \_\_LINE\_\_,\ \_\_FUNCTION\_\_)}
+
+\end{DoxyCode}
+\Hypertarget{_logger_8h_a336b67145ed90b00e91f26b8e64cccbe}\index{Logger.h@{Logger.h}!ENGINE\_LOG\_INFO@{ENGINE\_LOG\_INFO}}
+\index{ENGINE\_LOG\_INFO@{ENGINE\_LOG\_INFO}!Logger.h@{Logger.h}}
+\doxysubsubsection{\texorpdfstring{ENGINE\_LOG\_INFO}{ENGINE\_LOG\_INFO}}
+{\footnotesize\ttfamily \label{_logger_8h_a336b67145ed90b00e91f26b8e64cccbe} 
+\#define ENGINE\+\_\+\+LOG\+\_\+\+INFO(\begin{DoxyParamCaption}\item[{}]{message}{, }\item[{}]{category}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{class_synapse_1_1_logger_a98f642711c7553aa7b702c51c83dab6e}{Synapse::Logger::info}}(message,\ category,\ \_\_FILE\_\_,\ \_\_LINE\_\_,\ \_\_FUNCTION\_\_)}
+
+\end{DoxyCode}
+\Hypertarget{_logger_8h_ae923a0bfe44ce34efeb35a30146260ab}\index{Logger.h@{Logger.h}!ENGINE\_LOG\_TRACE@{ENGINE\_LOG\_TRACE}}
+\index{ENGINE\_LOG\_TRACE@{ENGINE\_LOG\_TRACE}!Logger.h@{Logger.h}}
+\doxysubsubsection{\texorpdfstring{ENGINE\_LOG\_TRACE}{ENGINE\_LOG\_TRACE}}
+{\footnotesize\ttfamily \label{_logger_8h_ae923a0bfe44ce34efeb35a30146260ab} 
+\#define ENGINE\+\_\+\+LOG\+\_\+\+TRACE(\begin{DoxyParamCaption}\item[{}]{message}{, }\item[{}]{category}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{class_synapse_1_1_logger_a8894563638daddecbb92b9956ceba58f}{Synapse::Logger::trace}}(message,\ category,\ \_\_FILE\_\_,\ \_\_LINE\_\_,\ \_\_FUNCTION\_\_)}
+
+\end{DoxyCode}
+\Hypertarget{_logger_8h_a29bd837e5b1db1326e444bb02d4162f1}\index{Logger.h@{Logger.h}!ENGINE\_LOG\_WARNING@{ENGINE\_LOG\_WARNING}}
+\index{ENGINE\_LOG\_WARNING@{ENGINE\_LOG\_WARNING}!Logger.h@{Logger.h}}
+\doxysubsubsection{\texorpdfstring{ENGINE\_LOG\_WARNING}{ENGINE\_LOG\_WARNING}}
+{\footnotesize\ttfamily \label{_logger_8h_a29bd837e5b1db1326e444bb02d4162f1} 
+\#define ENGINE\+\_\+\+LOG\+\_\+\+WARNING(\begin{DoxyParamCaption}\item[{}]{message}{, }\item[{}]{category}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{class_synapse_1_1_logger_a96bb76bb671ea31920ccf96e5e5d3832}{Synapse::Logger::warning}}(message,\ category,\ \_\_FILE\_\_,\ \_\_LINE\_\_,\ \_\_FUNCTION\_\_)}
+
+\end{DoxyCode}

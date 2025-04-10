@@ -1,0 +1,74 @@
+\doxysection{Synapse Namespace Reference}
+\hypertarget{namespace_synapse}{}\label{namespace_synapse}\index{Synapse@{Synapse}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_synapse_1_1_application}{Application}}
+\item 
+class \mbox{\hyperlink{class_synapse_1_1_console_sink}{Console\+Sink}}
+\item 
+class \mbox{\hyperlink{class_synapse_1_1_engine}{Engine}}
+\item 
+class \mbox{\hyperlink{class_synapse_1_1_file_sink}{File\+Sink}}
+\item 
+class \mbox{\hyperlink{class_synapse_1_1_i_log_sink}{ILog\+Sink}}
+\item 
+class \mbox{\hyperlink{class_synapse_1_1_logger}{Logger}}
+\item 
+struct \mbox{\hyperlink{struct_synapse_1_1_log_message}{Log\+Message}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{namespace_synapse_ab9c8d27c1b5de8fd3f0fa86c4a75963b}{Log\+Level}} \{ \newline
+\mbox{\hyperlink{namespace_synapse_ab9c8d27c1b5de8fd3f0fa86c4a75963badd4ec0ac4e58f7c32a01244ae91150b1}{Trace}}
+, \mbox{\hyperlink{namespace_synapse_ab9c8d27c1b5de8fd3f0fa86c4a75963baa603905470e2a5b8c13e96b579ef0dba}{Debug}}
+, \mbox{\hyperlink{namespace_synapse_ab9c8d27c1b5de8fd3f0fa86c4a75963ba4059b0251f66a18cb56f544728796875}{Info}}
+, \mbox{\hyperlink{namespace_synapse_ab9c8d27c1b5de8fd3f0fa86c4a75963ba0eaadb4fcb48a0a0ed7bc9868be9fbaa}{Warning}}
+, \newline
+\mbox{\hyperlink{namespace_synapse_ab9c8d27c1b5de8fd3f0fa86c4a75963ba902b0d55fddef6f8d651fe1035b7d4bd}{Error}}
+, \mbox{\hyperlink{namespace_synapse_ab9c8d27c1b5de8fd3f0fa86c4a75963ba278d01e5af56273bae1bb99a98b370cd}{Critical}}
+, \mbox{\hyperlink{namespace_synapse_ab9c8d27c1b5de8fd3f0fa86c4a75963bad15305d7a4e34e02489c74a5ef542f36}{Off}}
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{namespace_synapse_ab9c8d27c1b5de8fd3f0fa86c4a75963b}\index{Synapse@{Synapse}!LogLevel@{LogLevel}}
+\index{LogLevel@{LogLevel}!Synapse@{Synapse}}
+\doxysubsubsection{\texorpdfstring{LogLevel}{LogLevel}}
+{\footnotesize\ttfamily \label{namespace_synapse_ab9c8d27c1b5de8fd3f0fa86c4a75963b} 
+enum class \mbox{\hyperlink{namespace_synapse_ab9c8d27c1b5de8fd3f0fa86c4a75963b}{Synapse\+::\+Log\+Level}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+Simple logging levels types in an Enum
+
+Trace is for detailed information Info is for general information Warn is for warning messages Error is for error messages Debug is for debugging information Critical is for critical error messages Off is to disable logging \begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Trace@{Trace}!Synapse@{Synapse}}\index{Synapse@{Synapse}!Trace@{Trace}}}\Hypertarget{namespace_synapse_ab9c8d27c1b5de8fd3f0fa86c4a75963badd4ec0ac4e58f7c32a01244ae91150b1}\label{namespace_synapse_ab9c8d27c1b5de8fd3f0fa86c4a75963badd4ec0ac4e58f7c32a01244ae91150b1} 
+Trace&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Debug@{Debug}!Synapse@{Synapse}}\index{Synapse@{Synapse}!Debug@{Debug}}}\Hypertarget{namespace_synapse_ab9c8d27c1b5de8fd3f0fa86c4a75963baa603905470e2a5b8c13e96b579ef0dba}\label{namespace_synapse_ab9c8d27c1b5de8fd3f0fa86c4a75963baa603905470e2a5b8c13e96b579ef0dba} 
+Debug&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Info@{Info}!Synapse@{Synapse}}\index{Synapse@{Synapse}!Info@{Info}}}\Hypertarget{namespace_synapse_ab9c8d27c1b5de8fd3f0fa86c4a75963ba4059b0251f66a18cb56f544728796875}\label{namespace_synapse_ab9c8d27c1b5de8fd3f0fa86c4a75963ba4059b0251f66a18cb56f544728796875} 
+Info&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Warning@{Warning}!Synapse@{Synapse}}\index{Synapse@{Synapse}!Warning@{Warning}}}\Hypertarget{namespace_synapse_ab9c8d27c1b5de8fd3f0fa86c4a75963ba0eaadb4fcb48a0a0ed7bc9868be9fbaa}\label{namespace_synapse_ab9c8d27c1b5de8fd3f0fa86c4a75963ba0eaadb4fcb48a0a0ed7bc9868be9fbaa} 
+Warning&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Error@{Error}!Synapse@{Synapse}}\index{Synapse@{Synapse}!Error@{Error}}}\Hypertarget{namespace_synapse_ab9c8d27c1b5de8fd3f0fa86c4a75963ba902b0d55fddef6f8d651fe1035b7d4bd}\label{namespace_synapse_ab9c8d27c1b5de8fd3f0fa86c4a75963ba902b0d55fddef6f8d651fe1035b7d4bd} 
+Error&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Critical@{Critical}!Synapse@{Synapse}}\index{Synapse@{Synapse}!Critical@{Critical}}}\Hypertarget{namespace_synapse_ab9c8d27c1b5de8fd3f0fa86c4a75963ba278d01e5af56273bae1bb99a98b370cd}\label{namespace_synapse_ab9c8d27c1b5de8fd3f0fa86c4a75963ba278d01e5af56273bae1bb99a98b370cd} 
+Critical&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Off@{Off}!Synapse@{Synapse}}\index{Synapse@{Synapse}!Off@{Off}}}\Hypertarget{namespace_synapse_ab9c8d27c1b5de8fd3f0fa86c4a75963bad15305d7a4e34e02489c74a5ef542f36}\label{namespace_synapse_ab9c8d27c1b5de8fd3f0fa86c4a75963bad15305d7a4e34e02489c74a5ef542f36} 
+Off&\\
+\hline
+
+\end{DoxyEnumFields}

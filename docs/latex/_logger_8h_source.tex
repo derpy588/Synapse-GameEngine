@@ -1,0 +1,152 @@
+\doxysection{Logger.\+h}
+\hypertarget{_logger_8h_source}{}\label{_logger_8h_source}\index{include/SynapseEngine/Core/Logger.h@{include/SynapseEngine/Core/Logger.h}}
+\mbox{\hyperlink{_logger_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <thread>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <chrono>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <mutex>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ ENGINE\_LOG\_TRACE(message,\ category)\ \(\backslash\)}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\ \ \ \ Synapse::Logger::trace(message,\ category,\ \_\_FILE\_\_,\ \_\_LINE\_\_,\ \_\_FUNCTION\_\_)}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ ENGINE\_LOG\_DEBUG(message,\ category)\ \(\backslash\)}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\ \ \ \ Synapse::Logger::debug(message,\ category,\ \_\_FILE\_\_,\ \_\_LINE\_\_,\ \_\_FUNCTION\_\_)}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#define\ ENGINE\_LOG\_INFO(message,\ category)\ \(\backslash\)}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\ \ \ \ Synapse::Logger::info(message,\ category,\ \_\_FILE\_\_,\ \_\_LINE\_\_,\ \_\_FUNCTION\_\_)}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ ENGINE\_LOG\_WARNING(message,\ category)\ \(\backslash\)}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\ \ \ \ Synapse::Logger::warning(message,\ category,\ \_\_FILE\_\_,\ \_\_LINE\_\_,\ \_\_FUNCTION\_\_)}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ ENGINE\_LOG\_ERROR(message,\ category)\ \(\backslash\)}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\ \ \ \ Synapse::Logger::error(message,\ category,\ \_\_FILE\_\_,\ \_\_LINE\_\_,\ \_\_FUNCTION\_\_)}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ ENGINE\_LOG\_CRITICAL(message,\ category)\ \(\backslash\)}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\ \ \ \ Synapse::Logger::critical(message,\ category,\ \_\_FILE\_\_,\ \_\_LINE\_\_,\ \_\_FUNCTION\_\_)}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_synapse}{Synapse}}\ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{namespace_synapse_ab9c8d27c1b5de8fd3f0fa86c4a75963b}{LogLevel}}\ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_synapse_ab9c8d27c1b5de8fd3f0fa86c4a75963badd4ec0ac4e58f7c32a01244ae91150b1}{Trace}},\ \mbox{\hyperlink{namespace_synapse_ab9c8d27c1b5de8fd3f0fa86c4a75963baa603905470e2a5b8c13e96b579ef0dba}{Debug}},\ \mbox{\hyperlink{namespace_synapse_ab9c8d27c1b5de8fd3f0fa86c4a75963ba4059b0251f66a18cb56f544728796875}{Info}},\ \mbox{\hyperlink{namespace_synapse_ab9c8d27c1b5de8fd3f0fa86c4a75963ba0eaadb4fcb48a0a0ed7bc9868be9fbaa}{Warning}},\ \mbox{\hyperlink{namespace_synapse_ab9c8d27c1b5de8fd3f0fa86c4a75963ba902b0d55fddef6f8d651fe1035b7d4bd}{Error}},\ \mbox{\hyperlink{namespace_synapse_ab9c8d27c1b5de8fd3f0fa86c4a75963ba278d01e5af56273bae1bb99a98b370cd}{Critical}},\ \mbox{\hyperlink{namespace_synapse_ab9c8d27c1b5de8fd3f0fa86c4a75963bad15305d7a4e34e02489c74a5ef542f36}{Off}}}
+\DoxyCodeLine{00045\ \ \ \ \ \};}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_synapse_1_1_log_message}{LogMessage}}\ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_synapse_ab9c8d27c1b5de8fd3f0fa86c4a75963b}{LogLevel}}\ \mbox{\hyperlink{struct_synapse_1_1_log_message_a95af7abd99d30db9dd4cb5ba6f8e98e2}{level}};}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{struct_synapse_1_1_log_message_aa19df5e021f28aa9b241feb553cf5b21}{message}};}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{struct_synapse_1_1_log_message_a0d0f00152a4677e1b085bed40fb2be36}{category}};}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{struct_synapse_1_1_log_message_a6503e76589398b5170bcbdcce96789a0}{file}};}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_synapse_1_1_log_message_a888eb7159616e73a53c146c712f2fc09}{line}};}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{struct_synapse_1_1_log_message_a4df1a46f8681feb2729d88efdcb83291}{function}};}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ std::thread::id\ \mbox{\hyperlink{struct_synapse_1_1_log_message_a815233ecdd704ef823d5de423c3bc2a0}{threadId}};}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ std::chrono::system\_clock::time\_point\ \mbox{\hyperlink{struct_synapse_1_1_log_message_ab6360d658e0ab0817c6e9b84e2298929}{timestamp}};}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ \};}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_synapse_1_1_i_log_sink}{ILogSink}}\ \{}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_synapse_1_1_i_log_sink_a635116c1748d1c859eb9d6b9e0c43a61}{\string~ILogSink}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_synapse_1_1_i_log_sink_a93efba7a7a7d4910051b0964d7b7bad8}{write}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_synapse_1_1_log_message}{LogMessage}}\&\ message)\ =\ 0;}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_synapse_1_1_i_log_sink_aa80a929e18a6ab28b431277d46b3617b}{flush}}()\ =\ 0;}
+\DoxyCodeLine{00087\ \ \ \ \ \};}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_synapse_1_1_logger}{Logger}}\ \{}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_synapse_ab9c8d27c1b5de8fd3f0fa86c4a75963b}{LogLevel}}\ globalLevel\ =\ \mbox{\hyperlink{namespace_synapse_ab9c8d27c1b5de8fd3f0fa86c4a75963ba4059b0251f66a18cb56f544728796875}{LogLevel::Info}};}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<std::shared\_ptr<ILogSink>>\ sinks;}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ std::mutex\ logMutex;}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ std::unordered\_map<std::string,\ LogLevel>\ categoryLevels;}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_synapse_1_1_logger}{Logger}}\&\ \mbox{\hyperlink{class_synapse_1_1_logger_acba154144eae824a95af3a94efca4424}{getInstance}}()\ \{}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_synapse_1_1_logger}{Logger}}\ instance;}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ instance;}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_synapse_1_1_logger_a2c74c1bc8cd3a45c3f88e427e8f55377}{addSink}}(std::shared\_ptr<ILogSink>\ sink);}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_synapse_1_1_logger_aa9571f14b7ec5ecb8aec0edacb1df94b}{setGlobalLevel}}(\mbox{\hyperlink{namespace_synapse_ab9c8d27c1b5de8fd3f0fa86c4a75963b}{LogLevel}}\ level);}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_synapse_1_1_logger_a2566f2abdb36f3cb78fe40b8b5b52d56}{setCategoryLevel}}(\textcolor{keyword}{const}\ std::string\&\ category,\ \mbox{\hyperlink{namespace_synapse_ab9c8d27c1b5de8fd3f0fa86c4a75963b}{LogLevel}}\ level);}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_synapse_1_1_logger_a6e11258c94fa1370676656047551dea8}{shouldLog}}(\mbox{\hyperlink{namespace_synapse_ab9c8d27c1b5de8fd3f0fa86c4a75963b}{LogLevel}}\ level,\ \textcolor{keyword}{const}\ std::string\&\ category);}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_synapse_1_1_logger_a456816cc4393bd2561c2b1596ad58593}{log}}(\mbox{\hyperlink{namespace_synapse_ab9c8d27c1b5de8fd3f0fa86c4a75963b}{LogLevel}}\ level,\ \textcolor{keyword}{const}\ std::string\&\ message,}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ category,}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ file,}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ line,}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ function);}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_synapse_1_1_logger_a8894563638daddecbb92b9956ceba58f}{trace}}(\textcolor{keyword}{const}\ std::string\&\ message,\ \textcolor{keyword}{const}\ std::string\&\ category,}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ file,\ \textcolor{keywordtype}{int}\ line,\ \textcolor{keyword}{const}\ std::string\&\ function)\ \{}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_synapse_1_1_logger_acba154144eae824a95af3a94efca4424}{getInstance}}().\mbox{\hyperlink{class_synapse_1_1_logger_a456816cc4393bd2561c2b1596ad58593}{log}}(\mbox{\hyperlink{namespace_synapse_ab9c8d27c1b5de8fd3f0fa86c4a75963badd4ec0ac4e58f7c32a01244ae91150b1}{LogLevel::Trace}},\ message,\ category,\ file,\ line,\ function);}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_synapse_1_1_logger_a923d511dcc937a741e225bfe013ef540}{debug}}(\textcolor{keyword}{const}\ std::string\&\ message,\ \textcolor{keyword}{const}\ std::string\&\ category,}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ file,\ \textcolor{keywordtype}{int}\ line,\ \textcolor{keyword}{const}\ std::string\&\ function)}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_synapse_1_1_logger_acba154144eae824a95af3a94efca4424}{getInstance}}().\mbox{\hyperlink{class_synapse_1_1_logger_a456816cc4393bd2561c2b1596ad58593}{log}}(\mbox{\hyperlink{namespace_synapse_ab9c8d27c1b5de8fd3f0fa86c4a75963baa603905470e2a5b8c13e96b579ef0dba}{LogLevel::Debug}},\ message,\ category,\ file,\ line,\ function);}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_synapse_1_1_logger_a98f642711c7553aa7b702c51c83dab6e}{info}}(\textcolor{keyword}{const}\ std::string\&\ message,\ \textcolor{keyword}{const}\ std::string\&\ category,}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ file,\ \textcolor{keywordtype}{int}\ line,\ \textcolor{keyword}{const}\ std::string\&\ function)}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_synapse_1_1_logger_acba154144eae824a95af3a94efca4424}{getInstance}}().\mbox{\hyperlink{class_synapse_1_1_logger_a456816cc4393bd2561c2b1596ad58593}{log}}(\mbox{\hyperlink{namespace_synapse_ab9c8d27c1b5de8fd3f0fa86c4a75963ba4059b0251f66a18cb56f544728796875}{LogLevel::Info}},\ message,\ category,\ file,\ line,\ function);}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_synapse_1_1_logger_a96bb76bb671ea31920ccf96e5e5d3832}{warning}}(\textcolor{keyword}{const}\ std::string\&\ message,\ \textcolor{keyword}{const}\ std::string\&\ category,}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ file,\ \textcolor{keywordtype}{int}\ line,\ \textcolor{keyword}{const}\ std::string\&\ function)}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_synapse_1_1_logger_acba154144eae824a95af3a94efca4424}{getInstance}}().\mbox{\hyperlink{class_synapse_1_1_logger_a456816cc4393bd2561c2b1596ad58593}{log}}(\mbox{\hyperlink{namespace_synapse_ab9c8d27c1b5de8fd3f0fa86c4a75963ba0eaadb4fcb48a0a0ed7bc9868be9fbaa}{LogLevel::Warning}},\ message,\ category,\ file,\ line,\ function);}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_synapse_1_1_logger_a9a41472777b1421afb75a1e94963594a}{error}}(\textcolor{keyword}{const}\ std::string\&\ message,\ \textcolor{keyword}{const}\ std::string\&\ category,}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ file,\ \textcolor{keywordtype}{int}\ line,\ \textcolor{keyword}{const}\ std::string\&\ function)}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_synapse_1_1_logger_acba154144eae824a95af3a94efca4424}{getInstance}}().\mbox{\hyperlink{class_synapse_1_1_logger_a456816cc4393bd2561c2b1596ad58593}{log}}(\mbox{\hyperlink{namespace_synapse_ab9c8d27c1b5de8fd3f0fa86c4a75963ba902b0d55fddef6f8d651fe1035b7d4bd}{LogLevel::Error}},\ message,\ category,\ file,\ line,\ function);}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_synapse_1_1_logger_a9402904f144c7e90ad92912c68ba8226}{critical}}(\textcolor{keyword}{const}\ std::string\&\ message,\ \textcolor{keyword}{const}\ std::string\&\ category,}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ file,\ \textcolor{keywordtype}{int}\ line,\ \textcolor{keyword}{const}\ std::string\&\ function)}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_synapse_1_1_logger_acba154144eae824a95af3a94efca4424}{getInstance}}().\mbox{\hyperlink{class_synapse_1_1_logger_a456816cc4393bd2561c2b1596ad58593}{log}}(\mbox{\hyperlink{namespace_synapse_ab9c8d27c1b5de8fd3f0fa86c4a75963ba278d01e5af56273bae1bb99a98b370cd}{LogLevel::Critical}},\ message,\ category,\ file,\ line,\ function);}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00158\ \ \ \ \ \};}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00161\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_synapse_1_1_console_sink}{ConsoleSink}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_synapse_1_1_i_log_sink}{ILogSink}}\ \{}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_synapse_1_1_console_sink_a6729d4521d924b45a8d537ca913c152c}{write}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_synapse_1_1_log_message}{LogMessage}}\&\ message)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_synapse_1_1_console_sink_a20b86ae880b63b6e465afd021b3caf01}{flush}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ setConsoleColor(\mbox{\hyperlink{namespace_synapse_ab9c8d27c1b5de8fd3f0fa86c4a75963b}{LogLevel}}\ level);}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ resetConsoleColor();}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ formatMessage(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_synapse_1_1_log_message}{LogMessage}}\&\ message);}
+\DoxyCodeLine{00170\ \ \ \ \ \};}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00173\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_synapse_1_1_file_sink_a99885888294d2aaa4b8e67de01f46d7f}{FileSink}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_synapse_1_1_i_log_sink}{ILogSink}}\ \{}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_synapse_1_1_file_sink_a99885888294d2aaa4b8e67de01f46d7f}{FileSink}}(\textcolor{keyword}{const}\ std::string\&\ filename);}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_synapse_1_1_file_sink_acb0fc56acc0b614b593135cd553cc1a7}{\string~FileSink}}();}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_synapse_1_1_file_sink_a336e99ec52e9e59839cfe4bf6ff9d672}{write}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_synapse_1_1_log_message}{LogMessage}}\&\ message)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_synapse_1_1_file_sink_a7450d289bc2a0520b3f07ad045606574}{flush}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ formatMessage(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_synapse_1_1_log_message}{LogMessage}}\&\ message);}
+\DoxyCodeLine{00182\ }
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ filename;}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \ \ \ \ std::ofstream\ fileStream;}
+\DoxyCodeLine{00186\ \ \ \ \ \};}
+\DoxyCodeLine{00187\ \}}
+
+\end{DoxyCode}

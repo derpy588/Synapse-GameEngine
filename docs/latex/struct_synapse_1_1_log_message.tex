@@ -1,0 +1,86 @@
+\doxysection{Synapse\+::Log\+Message Struct Reference}
+\hypertarget{struct_synapse_1_1_log_message}{}\label{struct_synapse_1_1_log_message}\index{Synapse::LogMessage@{Synapse::LogMessage}}
+
+
+{\ttfamily \#include $<$Logger.\+h$>$}
+
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespace_synapse_ab9c8d27c1b5de8fd3f0fa86c4a75963b}{Log\+Level}} \mbox{\hyperlink{struct_synapse_1_1_log_message_a95af7abd99d30db9dd4cb5ba6f8e98e2}{level}}
+\item 
+std\+::string \mbox{\hyperlink{struct_synapse_1_1_log_message_aa19df5e021f28aa9b241feb553cf5b21}{message}}
+\item 
+std\+::string \mbox{\hyperlink{struct_synapse_1_1_log_message_a0d0f00152a4677e1b085bed40fb2be36}{category}}
+\item 
+std\+::string \mbox{\hyperlink{struct_synapse_1_1_log_message_a6503e76589398b5170bcbdcce96789a0}{file}}
+\item 
+int \mbox{\hyperlink{struct_synapse_1_1_log_message_a888eb7159616e73a53c146c712f2fc09}{line}}
+\item 
+std\+::string \mbox{\hyperlink{struct_synapse_1_1_log_message_a4df1a46f8681feb2729d88efdcb83291}{function}}
+\item 
+std\+::thread\+::id \mbox{\hyperlink{struct_synapse_1_1_log_message_a815233ecdd704ef823d5de423c3bc2a0}{thread\+Id}}
+\item 
+std\+::chrono\+::system\+\_\+clock\+::time\+\_\+point \mbox{\hyperlink{struct_synapse_1_1_log_message_ab6360d658e0ab0817c6e9b84e2298929}{timestamp}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{struct_synapse_1_1_log_message}{Log\+Message} Parameters\+:
+
+Level is what level the log message is message is the log message itself category is for what system like renderer, physics, etc. file is the source file where the log was generated line is the line number in the source file function is the function name where the log was generated thread\+Id is the ID of the thread that generated the log timestamp is the time when the log was generated 
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{struct_synapse_1_1_log_message_a0d0f00152a4677e1b085bed40fb2be36}\index{Synapse::LogMessage@{Synapse::LogMessage}!category@{category}}
+\index{category@{category}!Synapse::LogMessage@{Synapse::LogMessage}}
+\doxysubsubsection{\texorpdfstring{category}{category}}
+{\footnotesize\ttfamily \label{struct_synapse_1_1_log_message_a0d0f00152a4677e1b085bed40fb2be36} 
+std\+::string Synapse\+::\+Log\+Message\+::category}
+
+\Hypertarget{struct_synapse_1_1_log_message_a6503e76589398b5170bcbdcce96789a0}\index{Synapse::LogMessage@{Synapse::LogMessage}!file@{file}}
+\index{file@{file}!Synapse::LogMessage@{Synapse::LogMessage}}
+\doxysubsubsection{\texorpdfstring{file}{file}}
+{\footnotesize\ttfamily \label{struct_synapse_1_1_log_message_a6503e76589398b5170bcbdcce96789a0} 
+std\+::string Synapse\+::\+Log\+Message\+::file}
+
+\Hypertarget{struct_synapse_1_1_log_message_a4df1a46f8681feb2729d88efdcb83291}\index{Synapse::LogMessage@{Synapse::LogMessage}!function@{function}}
+\index{function@{function}!Synapse::LogMessage@{Synapse::LogMessage}}
+\doxysubsubsection{\texorpdfstring{function}{function}}
+{\footnotesize\ttfamily \label{struct_synapse_1_1_log_message_a4df1a46f8681feb2729d88efdcb83291} 
+std\+::string Synapse\+::\+Log\+Message\+::function}
+
+\Hypertarget{struct_synapse_1_1_log_message_a95af7abd99d30db9dd4cb5ba6f8e98e2}\index{Synapse::LogMessage@{Synapse::LogMessage}!level@{level}}
+\index{level@{level}!Synapse::LogMessage@{Synapse::LogMessage}}
+\doxysubsubsection{\texorpdfstring{level}{level}}
+{\footnotesize\ttfamily \label{struct_synapse_1_1_log_message_a95af7abd99d30db9dd4cb5ba6f8e98e2} 
+\mbox{\hyperlink{namespace_synapse_ab9c8d27c1b5de8fd3f0fa86c4a75963b}{Log\+Level}} Synapse\+::\+Log\+Message\+::level}
+
+\Hypertarget{struct_synapse_1_1_log_message_a888eb7159616e73a53c146c712f2fc09}\index{Synapse::LogMessage@{Synapse::LogMessage}!line@{line}}
+\index{line@{line}!Synapse::LogMessage@{Synapse::LogMessage}}
+\doxysubsubsection{\texorpdfstring{line}{line}}
+{\footnotesize\ttfamily \label{struct_synapse_1_1_log_message_a888eb7159616e73a53c146c712f2fc09} 
+int Synapse\+::\+Log\+Message\+::line}
+
+\Hypertarget{struct_synapse_1_1_log_message_aa19df5e021f28aa9b241feb553cf5b21}\index{Synapse::LogMessage@{Synapse::LogMessage}!message@{message}}
+\index{message@{message}!Synapse::LogMessage@{Synapse::LogMessage}}
+\doxysubsubsection{\texorpdfstring{message}{message}}
+{\footnotesize\ttfamily \label{struct_synapse_1_1_log_message_aa19df5e021f28aa9b241feb553cf5b21} 
+std\+::string Synapse\+::\+Log\+Message\+::message}
+
+\Hypertarget{struct_synapse_1_1_log_message_a815233ecdd704ef823d5de423c3bc2a0}\index{Synapse::LogMessage@{Synapse::LogMessage}!threadId@{threadId}}
+\index{threadId@{threadId}!Synapse::LogMessage@{Synapse::LogMessage}}
+\doxysubsubsection{\texorpdfstring{threadId}{threadId}}
+{\footnotesize\ttfamily \label{struct_synapse_1_1_log_message_a815233ecdd704ef823d5de423c3bc2a0} 
+std\+::thread\+::id Synapse\+::\+Log\+Message\+::thread\+Id}
+
+\Hypertarget{struct_synapse_1_1_log_message_ab6360d658e0ab0817c6e9b84e2298929}\index{Synapse::LogMessage@{Synapse::LogMessage}!timestamp@{timestamp}}
+\index{timestamp@{timestamp}!Synapse::LogMessage@{Synapse::LogMessage}}
+\doxysubsubsection{\texorpdfstring{timestamp}{timestamp}}
+{\footnotesize\ttfamily \label{struct_synapse_1_1_log_message_ab6360d658e0ab0817c6e9b84e2298929} 
+std\+::chrono\+::system\+\_\+clock\+::time\+\_\+point Synapse\+::\+Log\+Message\+::timestamp}
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\+Synapse\+Engine/\+Core/\mbox{\hyperlink{_logger_8h}{Logger.\+h}}\end{DoxyCompactItemize}

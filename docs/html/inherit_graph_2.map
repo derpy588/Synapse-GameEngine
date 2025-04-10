@@ -1,0 +1,7 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" href="$class_synapse_1_1_i_log_sink.html" title=" " alt="" coords="5,31,137,56"/>
+<area shape="rect" id="Node000001" href="$class_synapse_1_1_console_sink.html" title=" " alt="" coords="185,5,339,31"/>
+<area shape="poly" id="edge1_Node000000_Node000001" title=" " alt="" coords="152,30,184,26,185,31,152,35"/>
+<area shape="rect" id="Node000002" href="$class_synapse_1_1_file_sink.html" title=" " alt="" coords="198,55,326,80"/>
+<area shape="poly" id="edge2_Node000000_Node000002" title=" " alt="" coords="152,51,198,57,197,62,152,56"/>
+</map>
