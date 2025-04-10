@@ -19,6 +19,7 @@ endif()
 add_library(SynapseEngine STATIC
     src/Synapse.cpp
     src/Core/Application.cpp
+    src/Core/Logger.cpp
     
     # Add other source files here
 )

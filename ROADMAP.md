@@ -5,7 +5,7 @@ This file defines the different systems I am currently and planning to implement
 ## V1.0.0 Roadmap
 
 ### Phase 1 Checklist
-- [ ] Logging system
+- [X] Logging system
 - [ ] Memory Management
 - [ ] Math Library
 - [ ] Window Management & Abstraction
