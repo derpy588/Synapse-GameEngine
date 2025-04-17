@@ -3,6 +3,21 @@
 #include <cstdlib>
 #include <new>
 
+/*
+Changes to Improve Allocator:
+- More robust coalesce function
+- thread safety with mutex
+- Logging (once i implement the memory tracker)
+
+Possible tests for this:
+- Basic Alloc test
+- Alignment tests
+- Out of memory tests
+- Fragmentation and Coalescing tests
+- Reset test
+- Stress test
+*/
+
 namespace Synapse {
 
     FreeListAllocator::FreeListAllocator(size_t totalSize) {
@@ -24,7 +39,7 @@ namespace Synapse {
         free(memoryBlock);
     }
 
-    void* FreeListAllocator::allocate(size_t size, size_t alignment = 8) {
+    void* FreeListAllocator::allocate(size_t size, size_t alignment) {
         // Check if size is at least the size of the freeblock struct
         size_t minSize = sizeof(FreeBlock);
 
@@ -39,9 +54,11 @@ namespace Synapse {
         while (block != nullptr) {
 
             uintptr_t blockAddr = reinterpret_cast<uintptr_t>(block);
-            uintptr_t alignAddr = align(blockAddr, alignment);
+            uintptr_t dataAddr = blockAddr + sizeof(AllocationHeader);
+            uintptr_t alignedDataAddr = align(dataAddr, alignment);
+            uintptr_t headerAddr = dataAddr - sizeof(AllocationHeader);
 
-            size_t padding = alignAddr - blockAddr;
+            size_t padding = alignedDataAddr - dataAddr;
             size_t reqSize = fullSize + padding;
 
             if (block->size >= reqSize) {
@@ -57,11 +74,11 @@ namespace Synapse {
                     *current = newBlock;
                 }
 
-                AllocationHeader* header = reinterpret_cast<AllocationHeader*>(alignAddr);
+                AllocationHeader* header = reinterpret_cast<AllocationHeader*>(headerAddr);
                 header->size = reqSize;
                 header->adjustment = static_cast<uint8_t>(padding);
 
-                return reinterpret_cast<void*>(alignAddr + sizeof(AllocationHeader));
+                return reinterpret_cast<void*>(alignedDataAddr);
             }
 
             current = &block->next;
@@ -79,6 +96,10 @@ namespace Synapse {
         AllocationHeader* header = reinterpret_cast<AllocationHeader*>(reinterpret_cast<char*>(ptr) - sizeof(AllocationHeader));
 
         uintptr_t ogAddr = reinterpret_cast<uintptr_t>(ptr) - sizeof(AllocationHeader) - header->adjustment;
+
+        uintptr_t memoryBlockAddr = reinterpret_cast<uintptr_t>(memoryBlock);
+
+        if (ogAddr < memoryBlockAddr || ogAddr >= memoryBlockAddr+memorySize) return;
 
         FreeBlock* block = reinterpret_cast<FreeBlock*>(ogAddr);
 
