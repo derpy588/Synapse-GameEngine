@@ -18,8 +18,18 @@ endif()
 # Build SynapseEngine as a static library
 add_library(SynapseEngine STATIC
     src/Synapse.cpp
+
+    # Core Srcs
     src/Core/Application.cpp
     src/Core/Logger.cpp
+
+    #Memory srcs
+    src/Core/Memory/MemoryManager.cpp
+    src/Core/Memory/MemoryTracker.cpp
+    src/Core/Memory/StackAllocator.cpp
+    src/Core/Memory/PoolAllocator.cpp
+    src/Core/Memory/FreeListAllocator.cpp
+    src/Core/Memory/BuddyAllocator.cpp
     
     # Add other source files here
 )
