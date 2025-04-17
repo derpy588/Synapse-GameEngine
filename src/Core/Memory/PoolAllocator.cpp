@@ -12,7 +12,8 @@ namespace Synapse {
         char* block = static_cast<char*>(memoryBlock);
 
         for (size_t i = 0; i < objectCount; i++) {
-            void* ptr = memoryBlock + (i * objectSize);
+            uintptr_t memBlockAddr = reinterpret_cast<uintptr_t>(memoryBlock);
+            void* ptr = reinterpret_cast<void*>(memBlockAddr + (i * objectSize));
             *static_cast<void**>(ptr) = freeList;
             freeList = ptr;
         }
