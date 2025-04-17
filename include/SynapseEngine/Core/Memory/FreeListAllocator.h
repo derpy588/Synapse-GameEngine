@@ -1,6 +1,7 @@
 #pragma once
 
 #include <cstddef>
+#include <mutex>
 
 namespace Synapse {
 
@@ -33,6 +34,8 @@ namespace Synapse {
             size_t memorySize;
 
             FreeBlock* freeList;
+
+            std::mutex allocMutex;
 
     };
 }

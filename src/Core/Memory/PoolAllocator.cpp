@@ -25,6 +25,8 @@ namespace Synapse {
     void* PoolAllocator::allocate() {
         if (!freeList) return nullptr;
 
+        std::lock_guard<std::mutex> lock(allocMutex);
+
         void* result = freeList;
 
         freeList = *static_cast<void**>(freeList);
@@ -33,6 +35,7 @@ namespace Synapse {
     }
 
     void PoolAllocator::deallocate(void* ptr) {
+        std::lock_guard<std::mutex> lock(allocMutex);
         *static_cast<void**>(ptr) = freeList;
 
         freeList = ptr;

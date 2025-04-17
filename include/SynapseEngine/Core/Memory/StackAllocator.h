@@ -1,6 +1,7 @@
 #pragma once
 
 #include <cstddef>
+#include <mutex>
 
 namespace Synapse {
     class StackAllocator {
@@ -18,5 +19,7 @@ namespace Synapse {
         void* memoryBlock;
         size_t memorySize;
         size_t currentOffset;
+
+        std::mutex allocMutex;
     };
 }

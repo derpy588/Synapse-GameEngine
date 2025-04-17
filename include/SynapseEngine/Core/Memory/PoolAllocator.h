@@ -1,6 +1,7 @@
 #pragma once
 
 #include <cstddef>
+#include <mutex>
 
 namespace Synapse {
 
@@ -15,5 +16,7 @@ namespace Synapse {
         private:
             void* memoryBlock;
             void* freeList;
+
+            std::mutex allocMutex;
     };
 }

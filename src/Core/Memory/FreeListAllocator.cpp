@@ -6,7 +6,6 @@
 /*
 Changes to Improve Allocator:
 - More robust coalesce function
-- thread safety with mutex
 - Logging (once i implement the memory tracker)
 
 Possible tests for this:
@@ -40,10 +39,14 @@ namespace Synapse {
     }
 
     void* FreeListAllocator::allocate(size_t size, size_t alignment) {
+
+        std::lock_guard<std::mutex> lock(allocMutex);
         // Check if size is at least the size of the freeblock struct
         size_t minSize = sizeof(FreeBlock);
 
         if (size < minSize) size = minSize;
+
+
 
         // Calculate the full size which is size of block + header
         size_t fullSize = size + sizeof(AllocationHeader);
@@ -93,6 +96,8 @@ namespace Synapse {
     void FreeListAllocator::deallocate(void* ptr) {
         if (!ptr) return;
 
+        std::lock_guard<std::mutex> lock(allocMutex);
+
         AllocationHeader* header = reinterpret_cast<AllocationHeader*>(reinterpret_cast<char*>(ptr) - sizeof(AllocationHeader));
 
         uintptr_t ogAddr = reinterpret_cast<uintptr_t>(ptr) - sizeof(AllocationHeader) - header->adjustment;
@@ -119,6 +124,7 @@ namespace Synapse {
     }
 
     void FreeListAllocator::reset() {
+        std::lock_guard<std::mutex> lock(allocMutex);
         FreeBlock* initBlock = reinterpret_cast<FreeBlock*>(memoryBlock);
         initBlock->size = memorySize;
         initBlock->next = nullptr;

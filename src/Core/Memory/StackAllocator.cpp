@@ -14,6 +14,8 @@ namespace Synapse {
     }
 
     void* StackAllocator::allocate(size_t size, size_t alignment) {
+        std::lock_guard<std::mutex> lock(allocMutex);
+
         size_t alignedOffset = align(currentOffset, alignment);
 
         if (alignedOffset + size > memorySize) {
@@ -25,6 +27,7 @@ namespace Synapse {
     }
 
     void StackAllocator::reset() {
+        std::lock_guard<std::mutex> lock(allocMutex);
         currentOffset = 0;
     }
 
